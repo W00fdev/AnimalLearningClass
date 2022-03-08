@@ -13,5 +13,13 @@ namespace StudyProject
         {
             dialogueHandler.PlayNext();
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                dialogueHandler.PlayNext();
+            }
+        }
     }
 }

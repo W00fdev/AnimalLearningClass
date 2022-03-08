@@ -11,10 +11,21 @@ namespace StudyProject
         public GameManager gameManager;
         public Material OutlineMaterial;
         public string tabletName;
-        public bool Selectable {get; set;}
+        public bool Selectable { get => _selectable; set => _selectable = value; }
+        public bool Clickable { get => _clickable; set => _clickable = value; }
+        public bool WaitForNextAction { get => _waitForNextAction; set => _waitForNextAction = value;}
 
         private Animator _animator;
         private Image _image;
+
+
+        [Header("Управление интеракциями таблички.")]
+        [SerializeField]
+        private bool _selectable;
+        [SerializeField]
+        private bool _clickable;
+        [SerializeField]
+        private bool _waitForNextAction;
 
         [SerializeField]
         private bool _selected = false;
@@ -22,6 +33,8 @@ namespace StudyProject
         private void Awake()
         {
             Selectable = false;
+            Clickable = false;
+            WaitForNextAction = false;
         }
 
         private void Start()
@@ -48,6 +61,11 @@ namespace StudyProject
             }
 
             // success
+
+            if (WaitForNextAction) 
+            {
+                gameManager.NextAction();
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -68,9 +86,12 @@ namespace StudyProject
 
         public void OnPointerClick(PointerEventData pointerEventData)
         {
-            if (Selectable)
+            if (Clickable)
             {
-                SwitchSelect();
+                if (WaitForNextAction || gameManager.ChooseTablet(tabletName))
+                    HandleEvent(true);
+                else
+                    HandleEvent(false);
             }
         }
 

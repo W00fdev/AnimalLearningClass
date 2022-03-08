@@ -54,7 +54,7 @@ namespace StudyProject
             StartCoroutine(InactiveChange(inactiveTimeOnActions[currentAction]));
             currentAction++;
 
-            float time = dialoguesBeforeAction[currentAction]
+            float time = dialoguesBeforeAction[currentAction];
 
             if (time > 0)
             {
@@ -68,21 +68,17 @@ namespace StudyProject
             {
                 NextAction();
             }
-
         }
 
-        public void ChooseTablet(string name, TableHandler sender)
+        public bool ChooseTablet(string name)
         {
             if (tabletsNames[_currentIndexTablet] == name) 
             {
-                sender.HandleEvent(true);
-
                 _currentIndexTablet++;
+                return true;
             }
-            else
-            {
-                sender.HandleEvent(false);
-            }
+            
+            return false;
         }
 
         IEnumerator InactiveChange(float delayTime)
