@@ -30,7 +30,7 @@ namespace StudyProject
         [SerializeField]
         private bool isInactive = false;
 
-        private void Start()
+        private void Awake()
         {
             gameManager = GetComponent<GameManager>();
         }
@@ -76,9 +76,13 @@ namespace StudyProject
             // If an active person speaks
             if (!skippedSpeakers.Contains(dialogues[currentDialogue].speaker))
             {
+                //Debug.Log(dialogues[currentDialogue].speaker);
                 Actor currentActor = gameManager.actors.Find( x => x.name == dialogues[currentDialogue].speaker );
-                currentActor.ChangeMood(dialogues[currentDialogue].passiveState);
-                currentActor.ChangeState(dialogues[currentDialogue].activeState);
+                if (currentActor != null)
+                {
+                    currentActor.ChangeMood(dialogues[currentDialogue].passiveState);
+                    currentActor.ChangeState(dialogues[currentDialogue].activeState);
+                }
             }
 
             textSpeaker.text = dialogues[currentDialogue].speaker;
