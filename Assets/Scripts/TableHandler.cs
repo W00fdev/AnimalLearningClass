@@ -6,20 +6,31 @@ using UnityEngine;
 
 namespace StudyProject
 {
-    public class TableHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class TableHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
+        public GameManager gameManager;
         public Material OutlineMaterial;
+        public string tabletName;
+        public bool Selectable {get; set;}
+
+        private Animator _animator;
         private Image _image;
 
         [SerializeField]
         private bool _selected = false;
 
-        void Start()
+        private void Awake()
         {
-            _image = GetComponent<Image>();
+            Selectable = false;
         }
 
-        void SwitchSelect()
+        private void Start()
+        {
+            _image = GetComponent<Image>();
+            _animator = GetComponent<Animator>();
+        }
+
+        public void SwitchSelect()
         {
             _selected = !_selected;
             if (_selected == false)
@@ -28,15 +39,40 @@ namespace StudyProject
                 _image.material = OutlineMaterial;
         }
 
-    public void OnPointerEnter(PointerEventData eventData)
-	{
-		SwitchSelect();
-	}
+        public void HandleEvent(bool success)
+        {
+            if (!success)
+            {
+                _animator.SetTrigger("Error");
+                return;
+            }
 
-	public void OnPointerExit(PointerEventData eventData)
-	{
-		SwitchSelect();
-	}
+            // success
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (Selectable)
+            {
+                SwitchSelect();
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (Selectable)
+            {
+                SwitchSelect();
+            }
+        }
+
+        public void OnPointerClick(PointerEventData pointerEventData)
+        {
+            if (Selectable)
+            {
+                SwitchSelect();
+            }
+        }
 
     }
 }

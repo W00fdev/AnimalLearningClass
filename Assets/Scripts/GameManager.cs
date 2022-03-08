@@ -9,6 +9,7 @@ namespace StudyProject
 
     public class GameManager : MonoBehaviour
     {
+        [Header("Система событий")]
         public List<Actor> actors;
         public List<UnityEvent> actions;
 
@@ -18,12 +19,18 @@ namespace StudyProject
         
         public int currentAction = 0;
 
-        private DialogueHandler dialogueHandler;
+        [Header("Выбор таблички")]
+
+        public List<string> tabletsNames;
+
+        private int _currentIndexTablet = 0;
+
+        private DialogueHandler _dialogueHandler;
 
         private void Start()
         {
-            dialogueHandler = GetComponent<DialogueHandler>();
-            dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
+            _dialogueHandler = GetComponent<DialogueHandler>();
+            _dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
             ResetActorsState();
         }
 
@@ -43,24 +50,45 @@ namespace StudyProject
         public void NextAction()
         {
             actions[currentAction].Invoke();
-            dialogueHandler.SetInactive(true);
+            _dialogueHandler.SetInactive(true);
             StartCoroutine(InactiveChange(inactiveTimeOnActions[currentAction]));
             currentAction++;
 
-            if (dialoguesBeforeAction[currentAction] > 0)
+            float time = dialoguesBeforeAction[currentAction]
+
+            if (time > 0)
             {
-                dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
+                _dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
             }
-            else 
+            else if (time == -1)
+            {
+                // infinity ... do nothing  :3
+            }
+            else
             {
                 NextAction();
+            }
+
+        }
+
+        public void ChooseTablet(string name, TableHandler sender)
+        {
+            if (tabletsNames[_currentIndexTablet] == name) 
+            {
+                sender.HandleEvent(true);
+
+                _currentIndexTablet++;
+            }
+            else
+            {
+                sender.HandleEvent(false);
             }
         }
 
         IEnumerator InactiveChange(float delayTime)
         {
             yield return new WaitForSeconds(delayTime);
-            dialogueHandler.SetInactive(false);
+            _dialogueHandler.SetInactive(false);
         }
     }
 }

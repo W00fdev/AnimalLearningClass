@@ -454,6 +454,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 457eef0d904d0b74bb62d15c0743b9d2, type: 2}
   - {fileID: 11400000, guid: dd6ac67618ffe084697c82c782dc0c3a, type: 2}
   - {fileID: 11400000, guid: 7493762695b862541bc754d9d11543bf, type: 2}
+  - {fileID: 11400000, guid: 7bac65737ff90324d967d2f8b3dd4e5a, type: 2}
+  - {fileID: 11400000, guid: 78376e1e17231e145a4d544ed511946d, type: 2}
+  - {fileID: 11400000, guid: 8933f5644c875694cb789e7d8ede335e, type: 2}
   textSpeaker: {fileID: 815525567}
   textMessage: {fileID: 1201567267}
   skippedSpeakers:
@@ -461,7 +464,7 @@ MonoBehaviour:
   - "\u0425\u043E\u0440\u043E\u043C"
   currentDialogue: 0
   nextCheckpointDialogue: 10
-  tickDelay: 0.1
+  tickDelay: 0.01
   isInactive: 0
 --- !u!4 &256600151
 Transform:
@@ -576,13 +579,55 @@ MonoBehaviour:
           m_StringArgument: PandaAppearance
           m_BoolArgument: 0
         m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1401124228}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: Appearance
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 461079875}
+        m_TargetAssemblyTypeName: StudyProject.TableHandler, Assembly-CSharp
+        m_MethodName: SwitchSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: Appearance
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 693714195}
+        m_TargetAssemblyTypeName: StudyProject.Actor, Assembly-CSharp
+        m_MethodName: ChangeMood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   inactiveTimeOnActions:
   - 4
-  - 1
-  - 1
+  - 0.3
+  - 0.3
   - 3
-  dialoguesBeforeAction: 0600000001000000010000000800000002000000
+  - 1
+  dialoguesBeforeAction: 060000000100000001000000080000000400000002000000
   currentAction: 0
+  tabletsNames: []
 --- !u!1 &325308597
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +899,7 @@ GameObject:
   - component: {fileID: 461079876}
   - component: {fileID: 461079875}
   - component: {fileID: 461079874}
+  - component: {fileID: 461079878}
   m_Layer: 5
   m_Name: Tablet (3)
   m_TagString: Untagged
@@ -908,7 +954,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db7cce4e94e1424db745ffb8f8587f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 256600152}
   OutlineMaterial: {fileID: 2100000, guid: 5a6db85ebb9466f4b90af9ebdd3c4fdc, type: 2}
+  tabletName: "\u0421\u043B\u043E\u043D"
+  Selectable: 0
   _selected: 0
 --- !u!114 &461079876
 MonoBehaviour:
@@ -948,6 +997,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461079872}
   m_CullTransparentMesh: 1
+--- !u!95 &461079878
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461079872}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d82c35cc5bb5a6c41a2e4b5f629101ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &550790339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1601,7 @@ GameObject:
   - component: {fileID: 750181549}
   - component: {fileID: 750181548}
   - component: {fileID: 750181547}
+  - component: {fileID: 750181551}
   m_Layer: 5
   m_Name: Tablet (4)
   m_TagString: Untagged
@@ -1587,7 +1656,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db7cce4e94e1424db745ffb8f8587f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 256600152}
   OutlineMaterial: {fileID: 2100000, guid: 5a6db85ebb9466f4b90af9ebdd3c4fdc, type: 2}
+  tabletName: "\u041F\u043E\u043F\u0443\u0433\u0430\u0439"
+  Selectable: 0
   _selected: 0
 --- !u!114 &750181549
 MonoBehaviour:
@@ -1627,6 +1699,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750181545}
   m_CullTransparentMesh: 1
+--- !u!95 &750181551
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750181545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d82c35cc5bb5a6c41a2e4b5f629101ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &804378584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2287,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1401124226}
   - component: {fileID: 1401124228}
-  - component: {fileID: 1401124227}
   m_Layer: 5
   m_Name: Tablets
   m_TagString: Untagged
@@ -2227,18 +2317,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1401124227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1401124225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d2d6cb2955102947bc3a0b890e2e82a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1401124228
 Animator:
   serializedVersion: 3
@@ -2350,6 +2428,7 @@ GameObject:
   - component: {fileID: 1526816931}
   - component: {fileID: 1526816930}
   - component: {fileID: 1526816929}
+  - component: {fileID: 1526816933}
   m_Layer: 5
   m_Name: Tablet (1)
   m_TagString: Untagged
@@ -2404,7 +2483,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db7cce4e94e1424db745ffb8f8587f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 256600152}
   OutlineMaterial: {fileID: 2100000, guid: 5a6db85ebb9466f4b90af9ebdd3c4fdc, type: 2}
+  tabletName: "\u041B\u0435\u0432"
+  Selectable: 0
   _selected: 0
 --- !u!114 &1526816931
 MonoBehaviour:
@@ -2444,6 +2526,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526816927}
   m_CullTransparentMesh: 1
+--- !u!95 &1526816933
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526816927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d82c35cc5bb5a6c41a2e4b5f629101ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1555360362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2844,7 @@ GameObject:
   - component: {fileID: 1793615978}
   - component: {fileID: 1793615977}
   - component: {fileID: 1793615976}
+  - component: {fileID: 1793615980}
   m_Layer: 5
   m_Name: Tablet (2)
   m_TagString: Untagged
@@ -2797,7 +2899,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db7cce4e94e1424db745ffb8f8587f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 256600152}
   OutlineMaterial: {fileID: 2100000, guid: 5a6db85ebb9466f4b90af9ebdd3c4fdc, type: 2}
+  tabletName: "\u0417\u0435\u0431\u0440\u0430"
+  Selectable: 0
   _selected: 0
 --- !u!114 &1793615978
 MonoBehaviour:
@@ -2837,6 +2942,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793615974}
   m_CullTransparentMesh: 1
+--- !u!95 &1793615980
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793615974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d82c35cc5bb5a6c41a2e4b5f629101ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2114346243
 GameObject:
   m_ObjectHideFlags: 0
