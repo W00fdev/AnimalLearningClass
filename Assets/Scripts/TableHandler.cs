@@ -65,6 +65,7 @@ namespace StudyProject
             if (WaitForNextAction) 
             {
                 gameManager.NextAction();
+                WaitForNextAction = false;
             }
         }
 
@@ -89,7 +90,9 @@ namespace StudyProject
             if (Clickable)
             {
                 if (WaitForNextAction || gameManager.ChooseTablet(tabletName))
+                {
                     HandleEvent(true);
+                }
                 else
                     HandleEvent(false);
             }

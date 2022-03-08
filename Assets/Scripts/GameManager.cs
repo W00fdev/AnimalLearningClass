@@ -51,18 +51,16 @@ namespace StudyProject
         {
             actions[currentAction].Invoke();
             _dialogueHandler.SetInactive(true);
-            StartCoroutine(InactiveChange(inactiveTimeOnActions[currentAction]));
+            if (inactiveTimeOnActions[currentAction] > 0)
+                StartCoroutine(InactiveChange(inactiveTimeOnActions[currentAction]));
             currentAction++;
 
-            float time = dialoguesBeforeAction[currentAction];
+            if (inactiveTimeOnActions[currentAction - 1] == -1)
+                return; // infinite waiting ... wait for actions :3
 
-            if (time > 0)
+            if (dialoguesBeforeAction[currentAction] > 0)
             {
                 _dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
-            }
-            else if (time == -1)
-            {
-                // infinity ... do nothing  :3
             }
             else
             {
@@ -77,7 +75,7 @@ namespace StudyProject
                 _currentIndexTablet++;
                 return true;
             }
-            
+
             return false;
         }
 

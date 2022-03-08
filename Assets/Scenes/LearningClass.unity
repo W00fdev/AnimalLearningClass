@@ -535,6 +535,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32bd5d7f653ea6b4da8ed85fed95d501, type: 2}
   - {fileID: 11400000, guid: 6e15d55841556c446ba8fe697311a6be, type: 2}
   - {fileID: 11400000, guid: 2bf20a3dcb4c3a94fbfd5e5a408f8773, type: 2}
+  - {fileID: 11400000, guid: fe4b88efd49f16743882e1757a8a5145, type: 2}
+  - {fileID: 11400000, guid: 22687c2c841eaeb4cb1aa8979244ea14, type: 2}
+  - {fileID: 11400000, guid: a52ef25bac13d1047bd3856cc2ddcf6f, type: 2}
+  - {fileID: 11400000, guid: 443e293d4ee11cd438ea3dd6248e2d08, type: 2}
+  - {fileID: 11400000, guid: cbf2511b53a84da4390233a87473f4c9, type: 2}
+  - {fileID: 11400000, guid: 8464d7c057e54e949b5608ec2c561c55, type: 2}
   textSpeaker: {fileID: 815525567}
   textMessage: {fileID: 1201567267}
   skippedSpeakers:
@@ -542,7 +548,7 @@ MonoBehaviour:
   - "\u0425\u043E\u0440\u043E\u043C"
   currentDialogue: 0
   nextCheckpointDialogue: 10
-  tickDelay: 0.01
+  tickDelay: 0.03
   isInactive: 0
 --- !u!4 &256600151
 Transform:
@@ -709,6 +715,68 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1526816930}
+        m_TargetAssemblyTypeName: StudyProject.TableHandler, Assembly-CSharp
+        m_MethodName: set_Clickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1793615977}
+        m_TargetAssemblyTypeName: StudyProject.TableHandler, Assembly-CSharp
+        m_MethodName: set_Clickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 461079875}
+        m_TargetAssemblyTypeName: StudyProject.TableHandler, Assembly-CSharp
+        m_MethodName: set_Clickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 750181548}
+        m_TargetAssemblyTypeName: StudyProject.TableHandler, Assembly-CSharp
+        m_MethodName: set_Clickable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 461079878}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: Elephant
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 550790341}
@@ -718,9 +786,35 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Obruch
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 419023857}
+        m_TargetAssemblyTypeName: StudyProject.Actor, Assembly-CSharp
+        m_MethodName: ChangeMood
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: Obruch
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 550790341}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Obruch2
           m_BoolArgument: 0
         m_CallState: 2
   inactiveTimeOnActions:
@@ -731,13 +825,14 @@ MonoBehaviour:
   - 1
   - -1
   - 1.5
-  dialoguesBeforeAction: 06000000010000000100000008000000040000000200000002000000
+  - 1.5
+  dialoguesBeforeAction: 0600000001000000010000000800000004000000000000000200000005000000
   currentAction: 0
   tabletsNames:
-  - "\u0421\u043B\u043E\u043D"
-  - "\u041F\u043E\u043F\u0443\u0433\u0430\u0439"
-  - "\u0417\u0435\u0431\u0440\u0430"
-  - "\u041B\u0435\u0432"
+  - 1
+  - 1
+  - 2
+  - 2
 --- !u!1 &325308597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1255,7 @@ RectTransform:
   - {fileID: 804378585}
   - {fileID: 639653260}
   - {fileID: 59566147}
+  - {fileID: 581909630}
   m_Father: {fileID: 605881130}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1187,6 +1283,81 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &581909629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581909630}
+  - component: {fileID: 581909632}
+  - component: {fileID: 581909631}
+  m_Layer: 5
+  m_Name: Obruch_lion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &581909630
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581909629}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.28, y: 0.28, z: 1}
+  m_Children: []
+  m_Father: {fileID: 550790340}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 34, y: -45}
+  m_SizeDelta: {x: 687, y: 687.03}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &581909631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581909629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7ffade9072d5f2e4f9ad7ec06c03dfab, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &581909632
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581909629}
+  m_CullTransparentMesh: 1
 --- !u!1 &605881126
 GameObject:
   m_ObjectHideFlags: 0
