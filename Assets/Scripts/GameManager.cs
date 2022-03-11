@@ -20,7 +20,6 @@ namespace StudyProject
         public int currentAction = 0;
 
         [Header("Выбор таблички")]
-
         public List<string> tabletsNames;
 
         private int _currentIndexTablet = 0;
