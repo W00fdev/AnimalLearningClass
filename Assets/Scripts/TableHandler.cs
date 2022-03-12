@@ -64,6 +64,7 @@ namespace StudyProject
 
             if (WaitForNextAction) 
             {
+                SwitchSelect();
                 gameManager.NextAction();
                 WaitForNextAction = false;
             }
