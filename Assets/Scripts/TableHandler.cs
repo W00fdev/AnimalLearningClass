@@ -6,7 +6,8 @@ using UnityEngine;
 
 namespace StudyProject
 {
-    public class TableHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+    public class TableHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
+    IPointerDownHandler, IPointerUpHandler
     {
         public GameManager gameManager;
         public Material OutlineMaterial;
@@ -14,6 +15,8 @@ namespace StudyProject
         public bool Selectable { get => _selectable; set => _selectable = value; }
         public bool Clickable { get => _clickable; set => _clickable = value; }
         public bool WaitForNextAction { get => _waitForNextAction; set => _waitForNextAction = value;}
+
+        public bool Grabbable { get => _grabbable; set => _grabbable = value; }
 
         private Animator _animator;
         private Image _image;
@@ -26,6 +29,8 @@ namespace StudyProject
         private bool _clickable;
         [SerializeField]
         private bool _waitForNextAction;
+        [SerializeField]
+        private bool _grabbable;
 
         [SerializeField]
         private bool _selected = false;
@@ -96,6 +101,23 @@ namespace StudyProject
                 }
                 else
                     HandleEvent(false);
+            }
+        }
+
+        // Grabbable
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (Grabbable)
+            {
+
+            }
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            if (Grabbable)
+            {
+                
             }
         }
 
