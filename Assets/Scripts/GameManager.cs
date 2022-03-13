@@ -14,15 +14,9 @@ namespace StudyProject
         public List<UnityEvent> actions;
 
         public List<float> inactiveTimeOnActions;
-
         public List<int> dialoguesBeforeAction;       
         
         public int currentAction = 0;
-
-        [Header("Выбор таблички")]
-        public List<string> tabletsNames;
-
-        private int _currentIndexTablet = 0;
 
         private DialogueHandler _dialogueHandler;
 
@@ -65,17 +59,6 @@ namespace StudyProject
             {
                 NextAction();
             }
-        }
-
-        public bool ChooseTablet(string name)
-        {
-            if (tabletsNames[_currentIndexTablet] == name) 
-            {
-                _currentIndexTablet++;
-                return true;
-            }
-
-            return false;
         }
 
         IEnumerator InactiveChange(float delayTime)
