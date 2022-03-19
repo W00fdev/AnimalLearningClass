@@ -24,14 +24,14 @@ namespace StudyProject
         {
             _dialogueHandler = GetComponent<DialogueHandler>();
             _dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
-            ResetActorsState();
+            SetActorsMood();
         }
 
-        private void ResetActorsState()
+        public void SetActorsMood(int mood = 0)
         {
             foreach (Actor actor in actors)
             {
-                actor.ChangeMood(StatePassive.DEFAULT);
+                actor.ChangeMood(mood);
             }
         }
 

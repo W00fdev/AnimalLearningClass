@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -17,12 +15,9 @@ namespace StudyProject
             }
         }
 
-        [SerializeField]
-        private int _score = 0;
-
-        public Text _scoreText;
+        [SerializeField] private Text _scoreText;
+        [SerializeField] private int _score = 0;
 
         void Start() => _scoreText.text = "0";
-
     }
 }

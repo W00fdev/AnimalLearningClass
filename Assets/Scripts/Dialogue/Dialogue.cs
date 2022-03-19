@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StudyProject
@@ -11,7 +9,7 @@ namespace StudyProject
         [TextArea(5,10)]
         public string dialogue = "";  
 
-        public StateActive activeState;
+        //public StateActive activeState;
         public StatePassive passiveState;
     }
 }

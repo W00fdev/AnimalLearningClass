@@ -7,103 +7,93 @@ namespace StudyProject
 {
     public class DialogueHandler : MonoBehaviour
     {
+        [Header("Список диалогов")]
         public List<Dialogue> dialogues;
 
+        [Header("Ссылки на UI текст")]
         public Text textSpeaker;
-        public Text textMessage;
+        public Text textMessage; 
 
+        [Header("Спикеры, не участвующие в логике программы")]
         public List<string> skippedSpeakers;
 
-        private GameManager gameManager;
+        [Header("Отладка работы")]
+        [SerializeField] private float _tickDelay = 0.1f;
 
-        private Coroutine tickCoroutine;
+        [SerializeField] private int _currentDialogue = 0;
+        [SerializeField] private int _nextCheckpointDialogue = 10;
 
-        [SerializeField]
-        private int currentDialogue = 0;
-        [SerializeField]
-        private int nextCheckpointDialogue = 10;
-
-        [SerializeField]
-        private float tickDelay = 0.1f;
+        [SerializeField] private bool _isInactive = false;
+        
+        private GameManager _gameManager;
+        private Coroutine _tickCoroutine;
 
         private bool isTicking = false;
-        [SerializeField]
-        private bool isInactive = false;
+       
+        private void Awake() => _gameManager = GetComponent<GameManager>();
 
-        private void Awake()
-        {
-            gameManager = GetComponent<GameManager>();
-        }
-
-        public void SetInactive(bool _active) 
-        {
-            isInactive = _active;
-        }
+        public void SetInactive(bool _active) => _isInactive = _active;
+        public void Reset() => _currentDialogue = 0;
 
         public void Play(int count) 
         {
-            nextCheckpointDialogue = currentDialogue + count;
+            _nextCheckpointDialogue = _currentDialogue + count;
             PlayNext();
-        }
-
-        public void Reset()
-        {
-            currentDialogue = 0;
         }
 
         // Is invoked from mouse click in DialoguePlayNext.cs 
         public void PlayNext()
         {
-            if (isInactive)
+            if (_isInactive)
                 return;
 
-            if (nextCheckpointDialogue <= currentDialogue) 
+            if (_nextCheckpointDialogue <= _currentDialogue) 
             {
-                gameManager.DialogueHasDone();
+                _gameManager.DialogueHasDone();
                 return;
             }
 
             // Skip ticking and return control
             if (isTicking) 
             {
-                StopCoroutine(tickCoroutine);
+                StopCoroutine(_tickCoroutine);
                 isTicking = false;
-                textMessage.text = dialogues[currentDialogue].dialogue;
-                currentDialogue++;
+                textMessage.text = dialogues[_currentDialogue].dialogue;
+                _currentDialogue++;
                 return;
             }
                 
             // If an active person speaks
-            if (!skippedSpeakers.Contains(dialogues[currentDialogue].speaker))
+            if (!skippedSpeakers.Contains(dialogues[_currentDialogue].speaker))
             {
-                //Debug.Log(dialogues[currentDialogue].speaker);
-                Actor currentActor = gameManager.actors.Find( x => x.name == dialogues[currentDialogue].speaker );
+                //Debug.Log(dialogues[_currentDialogue].speaker);
+                Actor currentActor = _gameManager.actors.Find( x => x.name == dialogues[_currentDialogue].speaker );
                 if (currentActor != null)
                 {
-                    currentActor.ChangeMood(dialogues[currentDialogue].passiveState);
-                    currentActor.ChangeState(dialogues[currentDialogue].activeState);
+                    currentActor.ChangeMood(dialogues[_currentDialogue].passiveState);
+                    //currentActor.ChangeState(dialogues[_currentDialogue].activeState);
                 }
             }
 
-            textSpeaker.text = dialogues[currentDialogue].speaker;
+            textSpeaker.text = dialogues[_currentDialogue].speaker;
             textMessage.text = "";
-            tickCoroutine = StartCoroutine(TickText());
+            _tickCoroutine = StartCoroutine(TickText());
         }
 
         IEnumerator TickText() 
         {
             isTicking = true;
             string temp = "";
-            foreach(char c in dialogues[currentDialogue].dialogue) 
+            foreach(char c in dialogues[_currentDialogue].dialogue) 
             {
                 temp += c;
                 textMessage.text = temp;
                 
-                yield return new WaitForSeconds(tickDelay);
+                yield return new WaitForSeconds(_tickDelay);
             }
 
             isTicking = false;
-            currentDialogue++;
+            _currentDialogue++;
             //PlayNext();
         }
     }

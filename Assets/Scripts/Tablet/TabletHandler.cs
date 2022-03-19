@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace StudyProject
 {
-    public class TableHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
+    public class TabletHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler,
     IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [Header("Счетчик очков")]
@@ -15,13 +15,44 @@ namespace StudyProject
 
         [Header("Настройка")]
         public GameManager gameManager;
-        public Material OutlineMaterial;
         public string tabletName;
+
         public bool Selectable { get => _selectable; set => _selectable = value; }
         public bool Clickable { get => _clickable; set => _clickable = value; }
         public bool WaitForNextAction { get => _waitForNextAction; set => _waitForNextAction = value;}
-
         public bool Grabbable { get => _grabbable; set => _grabbable = value; }
+
+        public bool RightChoiceColor 
+        { 
+            get => _rightChoiceColor;  
+            set
+            {
+                if (value == true)
+                    _image.color = _green;
+                else
+                    _image.color = _white;
+
+                _rightChoiceColor = value;
+            }
+        }
+
+        public bool Selected 
+        { 
+            get => _selected;
+            set
+            {
+                if (Selectable)
+                {
+                    if (value == true)
+                        _image.color = _gray;
+                    else
+                        _image.color = _white;
+                }
+
+                _selected = value;
+            }
+        }
+
 
         private Animator _animator;
         private Image _image;
@@ -38,23 +69,25 @@ namespace StudyProject
         private bool _grabbable;
 
         [SerializeField]
-        private bool _selected = false;
+        private bool _selected = false;     
+        
+        [SerializeField]
+        private bool _rightChoiceColor = false;
 
         [SerializeField]
         private bool onActor = false;
 
-        private Camera _cachedCamera;
         private RectTransform _rtransform;
-
         private Vector2 _originRTransform;
 
         // Возвращает animator в исходное состояние.
-        private bool originAnimatorState;
+        private bool _originAnimatorState;
 
-        private bool checkCollider2D = false;
+        private bool _checkCollider2D = false;
 
-        private Color32 _green = new Color32(176, 255, 123, 255);
-        private Color32 _white = new Color32(255, 255, 255, 255);
+        private readonly Color32 _green = new Color32(176, 255, 123, 255);
+        private readonly Color32 _white = new Color32(255, 255, 255, 255);
+        private readonly Color32 _gray = new Color32(200, 200, 200, 255);
 
         private void Awake()
         {
@@ -70,18 +103,11 @@ namespace StudyProject
             _rtransform = GetComponent<RectTransform>();
 
             _image.color = _white;
-            _cachedCamera = Camera.main;
             _originRTransform = _rtransform.anchoredPosition;
         }
 
-        public void SwitchSelect()
-        {
-            _selected = !_selected;
-            if (_selected == false)
-                _image.material = null;
-            else
-                _image.material = OutlineMaterial;
-        }
+        public void SwitchSelect() => Selected = !Selected;
+        public void SetAnimatorTrigger(string triggerName) => _animator.SetTrigger(triggerName);
 
         public void HandleEvent(bool success)
         {
@@ -95,40 +121,23 @@ namespace StudyProject
 
             if (WaitForNextAction) 
             {
-                SwitchSelect();
+                Selected = false;
                 gameManager.NextAction();
                 WaitForNextAction = false;
             }
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if (Selectable)
-            {
-                SwitchSelect();
-            }
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            if (Selectable)
-            {
-                SwitchSelect();
-            }
-        }
+        public void OnPointerEnter(PointerEventData eventData) => Selected = true;
+        public void OnPointerExit(PointerEventData eventData) => Selected = false;
 
         public void OnPointerClick(PointerEventData pointerEventData)
         {
             if (Clickable)
             {
                 if (WaitForNextAction)
-                {
                     HandleEvent(true);
-                }
                 else
-                {
                     HandleEvent(false);
-                }
             }
         }
 
@@ -137,24 +146,21 @@ namespace StudyProject
         {
             if (Grabbable)
             {
-
+                _originAnimatorState = _animator.enabled;
+                _rtransform.sizeDelta = new Vector2(700, 700);
+                _animator.enabled = false;
             }
-            originAnimatorState = _animator.enabled;
-            _rtransform.sizeDelta = new Vector2(700, 700);
-            _animator.enabled = false;
         }
 
         public void OnDrag(PointerEventData data)
         {
             if (Grabbable)
-            {
                 _rtransform.anchoredPosition = new Vector3(data.position.x, data.position.y, 0);
-            }
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            checkCollider2D = true;
+            _checkCollider2D = true;
             StartCoroutine(DisableCheckCollider());
         }
 
@@ -166,18 +172,18 @@ namespace StudyProject
             {
                 _rtransform.anchoredPosition = _originRTransform;
                 _rtransform.sizeDelta = new Vector2(1024, 1024);
-                _animator.enabled = originAnimatorState;
+                _animator.enabled = _originAnimatorState;
             }
-                checkCollider2D = false;
+            
+            _checkCollider2D = false;
         }
 
         private void OnTriggerStay2D(Collider2D other)
         {
             if (!onActor)
             {
-                if(checkCollider2D && other.TryGetComponent(out Actor actor))
+                if(_checkCollider2D && other.TryGetComponent(out Actor actor))
                 {
-                    Debug.Log(actor.name);
                     if (tabletName == actor.name)
                     {
                         onActor = true;
@@ -201,24 +207,6 @@ namespace StudyProject
             _selected = false;
             _image.material = null;
         }
-
-        // public void OnPointerUp(PointerEventData eventData)
-        // {
-        //     if (Grabbable)
-        //     {
-        //         bool rightChoise = false;
-        //         if (rightChoise) 
-        //         {
-        //             ColorGreen();
-        //             scoreTable.Score++;
-        //             Clickable = false;
-        //             Selectable = false;
-        //             Grabbable = false;
-        //             _selected = false;
-        //             _image.material = null;
-        //         }
-        //     }
-        // }
 
         public void ColorGreen(bool isGreen = true)
         {

@@ -5,14 +5,18 @@ using UnityEngine;
 
 namespace StudyProject
 {
+    // public enum StateActive { PASSIVE, SPEAKING, FLAPPING, TABLE, FIGURE }
+    public enum StatePassive { DEFAULT, HAPPY, SAD, INCOMPREHESION, SPEAKING, PROUD, ANGRY, SURPRISED, SMILING }
+
     public class Actor : MonoBehaviour
     {
-        new public string name; 
         public List<Sprite> spriteSheet;// = new List<Sprite>();
 
-        [SerializeField]
+        new public string name; 
+
+        [SerializeField] 
         private StatePassive _mood = StatePassive.DEFAULT;
-        private StateActive _state = StateActive.PASSIVE;
+        //private StateActive _state = StateActive.PASSIVE;
 
         private Image _image;
 
@@ -26,10 +30,10 @@ namespace StudyProject
         // Animal_underst    ==    SURPRISED          = 7
         // Animal_st         ==    SMILING            = 8
         
-        private void Awake()
-        {
-            _image = GetComponent<Image>();
-        } 
+        private void Awake() => _image = GetComponent<Image>();
+
+        // public void ChangeState(StateActive newState) => _state = newState;
+        // public void ChangeState(int newState) => _state = (StateActive)newState;
 
         public void ChangeMood(StatePassive newMood)
         {
@@ -37,21 +41,13 @@ namespace StudyProject
             _image.sprite = spriteSheet[(int)_mood];
         }
 
-        public void ChangeState(StateActive newState) 
-        {
-            _state = newState;
-        }
-
-        // Inspector functions.
+        // Inspector-version function.
         public void ChangeMood(int newMood)
         {
             _mood = (StatePassive)newMood;
             _image.sprite = spriteSheet[newMood];
         }
 
-        public void ChangeState(int newState) 
-        {
-            _state = (StateActive)newState;
-        }
+        
     }
 }
