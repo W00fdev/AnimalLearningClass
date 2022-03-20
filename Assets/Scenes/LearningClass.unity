@@ -159,9 +159,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -231}
-  m_SizeDelta: {x: 0, y: -462.1}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 69}
+  m_SizeDelta: {x: 0, y: 137.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45222627
 MonoBehaviour:
@@ -398,7 +398,7 @@ RectTransform:
   m_Children:
   - {fileID: 942817551}
   m_Father: {fileID: 605881130}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -635,6 +635,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speaking1: {fileID: 21300000, guid: 44d308d3c76d77a4aaf50492cacba339, type: 3}
+  speaking2: {fileID: 21300000, guid: 1f186486b9af1ba45b317a814984d2a1, type: 3}
+  speakingTimeTick: 0.2
+  speaking: 0
+  cloppable: 0
+  clopTime: 1
+  clop1: {fileID: 0}
+  clop2: {fileID: 0}
+  clop3: {fileID: 0}
   spriteSheet:
   - {fileID: 21300000, guid: 869b246f40d526649833177a8583e950, type: 3}
   - {fileID: 21300000, guid: e6a8717410e2c114ea7ccbb11d2e3aa9, type: 3}
@@ -1954,10 +1963,10 @@ RectTransform:
   m_Father: {fileID: 45222626}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -362.58002, y: -0.0009918213}
-  m_SizeDelta: {x: 725.15, y: -0.8999939}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 117.41998, y: 68.99901}
+  m_SizeDelta: {x: -234.84998, y: 137.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325308599
 MonoBehaviour:
@@ -2132,6 +2141,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speaking1: {fileID: 21300000, guid: 12cdb318a13686c4789692d65631d844, type: 3}
+  speaking2: {fileID: 21300000, guid: d930ea931449919409a856f57f68341b, type: 3}
+  speakingTimeTick: 0.2
+  speaking: 0
+  cloppable: 0
+  clopTime: 1
+  clop1: {fileID: 0}
+  clop2: {fileID: 0}
+  clop3: {fileID: 0}
   spriteSheet:
   - {fileID: 21300000, guid: 7b05912e09ef3ca4491fb385245fc998, type: 3}
   - {fileID: 21300000, guid: f536cc354eb0d2142a33d65927364be7, type: 3}
@@ -2577,12 +2595,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 960, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.55
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2623,7 +2641,6 @@ RectTransform:
   - {fileID: 2114346244}
   - {fileID: 1169465528}
   - {fileID: 550790340}
-  - {fileID: 898860058}
   - {fileID: 1401124226}
   - {fileID: 825708749}
   - {fileID: 120198363}
@@ -2724,6 +2741,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speaking1: {fileID: 21300000, guid: 7a4c0e595a9d81b49b9904b72cfbd75e, type: 3}
+  speaking2: {fileID: 21300000, guid: 7f26b63d7d15d8b479ae8760002aec18, type: 3}
+  speakingTimeTick: 0.3
+  speaking: 0
+  cloppable: 1
+  clopTime: 1
+  clop1: {fileID: 21300000, guid: c043d98c8eb19294db9983faa7b94a2c, type: 3}
+  clop2: {fileID: 21300000, guid: fe887031319188248b118d0ddafc4d0f, type: 3}
+  clop3: {fileID: 21300000, guid: c7b9ec6e272b06243ad793c1ef4b7e5e, type: 3}
   spriteSheet:
   - {fileID: 21300000, guid: 9a81b65a1bd73e24e8196877bb4f5305, type: 3}
   - {fileID: 21300000, guid: d4ab7acbc717c91408759d6dc93fc987, type: 3}
@@ -2958,6 +2984,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speaking1: {fileID: 21300000, guid: 4c958c7a56415aa4da33a4b99f839107, type: 3}
+  speaking2: {fileID: 21300000, guid: a1458590bf7e12f40af4a4f43832ddbc, type: 3}
+  speakingTimeTick: 0.2
+  speaking: 0
+  cloppable: 0
+  clopTime: 1
+  clop1: {fileID: 0}
+  clop2: {fileID: 0}
+  clop3: {fileID: 0}
   spriteSheet:
   - {fileID: 21300000, guid: b3fb43e346391bf48965930d5e2fd500, type: 3}
   - {fileID: 21300000, guid: fb1eee92e1ecdf347bfc80a48de9f010, type: 3}
@@ -3324,6 +3359,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speaking1: {fileID: 21300000, guid: 66ee2af95da819d498b5ff95ff0d527d, type: 3}
+  speaking2: {fileID: 21300000, guid: 574cea2512b102d47b790c910890ba80, type: 3}
+  speakingTimeTick: 0.3
+  speaking: 0
+  cloppable: 0
+  clopTime: 1
+  clop1: {fileID: 0}
+  clop2: {fileID: 0}
+  clop3: {fileID: 0}
   spriteSheet:
   - {fileID: 21300000, guid: f79412b3339d5de478a12cb698c0fc3d, type: 3}
   - {fileID: 21300000, guid: d8ae08138aadc2c4eb3fbae746e069a0, type: 3}
@@ -3485,7 +3529,7 @@ RectTransform:
   m_Children:
   - {fileID: 225793311}
   m_Father: {fileID: 605881130}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3545,41 +3589,6 @@ MonoBehaviour:
   gameManager: {fileID: 256600152}
   timerText: {fileID: 225793312}
   _time: 10
---- !u!1 &898860057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 898860058}
-  m_Layer: 5
-  m_Name: Geometries
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &898860058
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898860057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 605881130}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &942817550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,9 +3702,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 101, y: 39.275}
-  m_SizeDelta: {x: 201.9, y: -79.45}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 101, y: 108.275}
+  m_SizeDelta: {x: 201.90002, y: 58.550003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946513425
 MonoBehaviour:
@@ -3801,6 +3810,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speaking1: {fileID: 0}
+  speaking2: {fileID: 0}
+  speakingTimeTick: 0.3
+  speaking: 0
+  cloppable: 0
+  clopTime: 1
+  clop1: {fileID: 0}
+  clop2: {fileID: 0}
+  clop3: {fileID: 0}
   spriteSheet:
   - {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
   - {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
@@ -4208,7 +4226,7 @@ RectTransform:
   - {fileID: 461079873}
   - {fileID: 750181546}
   m_Father: {fileID: 605881130}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4591,6 +4609,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speaking1: {fileID: 21300000, guid: 2bdd0337570f88b479848bede4d4e044, type: 3}
+  speaking2: {fileID: 21300000, guid: 89716d93b84c0a94aaa8b75b0e975213, type: 3}
+  speakingTimeTick: 0.2
+  speaking: 0
+  cloppable: 0
+  clopTime: 1
+  clop1: {fileID: 0}
+  clop2: {fileID: 0}
+  clop3: {fileID: 0}
   spriteSheet:
   - {fileID: 21300000, guid: 86945ac82a812b0438e541513bcd9157, type: 3}
   - {fileID: 21300000, guid: fa5d4ccea0ed77147a213c111e9e58d2, type: 3}

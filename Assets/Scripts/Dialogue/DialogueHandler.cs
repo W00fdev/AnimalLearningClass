@@ -28,6 +28,8 @@ namespace StudyProject
         private GameManager _gameManager;
         private Coroutine _tickCoroutine;
 
+        private Actor _currentSpeaker;
+
         private bool isTicking = false;
        
         private void Awake() => _gameManager = GetComponent<GameManager>();
@@ -50,6 +52,13 @@ namespace StudyProject
             if (_nextCheckpointDialogue <= _currentDialogue) 
             {
                 _gameManager.DialogueHasDone();
+
+                if (_currentSpeaker != null)
+                {
+                    _currentSpeaker.StopSpeaking();
+                    _currentSpeaker = null;
+                }
+
                 return;
             }
 
@@ -59,6 +68,13 @@ namespace StudyProject
                 StopCoroutine(_tickCoroutine);
                 isTicking = false;
                 textMessage.text = dialogues[_currentDialogue].dialogue;
+
+                if (_currentSpeaker != null)
+                {
+                    _currentSpeaker.StopSpeaking();
+                    _currentSpeaker = null;
+                }
+
                 _currentDialogue++;
                 return;
             }
@@ -66,12 +82,19 @@ namespace StudyProject
             // If an active person speaks
             if (!skippedSpeakers.Contains(dialogues[_currentDialogue].speaker))
             {
-                //Debug.Log(dialogues[_currentDialogue].speaker);
-                Actor currentActor = _gameManager.actors.Find( x => x.name == dialogues[_currentDialogue].speaker );
-                if (currentActor != null)
+                if (_currentSpeaker != null)
                 {
-                    currentActor.ChangeMood(dialogues[_currentDialogue].passiveState);
-                    //currentActor.ChangeState(dialogues[_currentDialogue].activeState);
+                    _currentSpeaker.StopSpeaking();
+                    _currentSpeaker = null;
+                }
+
+                _currentSpeaker = _gameManager.actors.Find( x => x.name == dialogues[_currentDialogue].speaker );
+                if (_currentSpeaker != null)
+                {
+                    _currentSpeaker.ChangeMood(dialogues[_currentDialogue].passiveState);
+
+                    if (_currentSpeaker != null)
+                        _currentSpeaker.StartSpeaking();
                 }
             }
 
@@ -95,6 +118,12 @@ namespace StudyProject
             isTicking = false;
             _currentDialogue++;
             //PlayNext();
+
+            if (_currentSpeaker != null)
+            {
+                _currentSpeaker.StopSpeaking();
+                _currentSpeaker = null;
+            }
         }
     }
 }
