@@ -41,18 +41,14 @@ namespace StudyProject
             get => _selected;
             set
             {
-                if (Selectable)
-                {
-                    if (value == true)
-                        _image.color = _gray;
-                    else
-                        _image.color = _white;
-                }
-
+                if (value == true)
+                    _image.color = _gray;
+                else
+                    _image.color = _white;
+                
                 _selected = value;
             }
         }
-
 
         private Animator _animator;
         private Image _image;
@@ -127,17 +123,22 @@ namespace StudyProject
             }
         }
 
-        public void OnPointerEnter(PointerEventData eventData) => Selected = true;
-        public void OnPointerExit(PointerEventData eventData) => Selected = false;
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (Selectable)
+                Selected = true;
+        }
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (Selectable)
+                Selected = false;
+        } 
 
         public void OnPointerClick(PointerEventData pointerEventData)
         {
             if (Clickable)
             {
-                if (WaitForNextAction)
-                    HandleEvent(true);
-                else
-                    HandleEvent(false);
+                HandleEvent(WaitForNextAction);
             }
         }
 
@@ -160,8 +161,11 @@ namespace StudyProject
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _checkCollider2D = true;
-            StartCoroutine(DisableCheckCollider());
+            if (Grabbable)
+            {
+                _checkCollider2D = true;
+                StartCoroutine(DisableCheckCollider());
+            }
         }
 
         IEnumerator DisableCheckCollider()
@@ -187,8 +191,8 @@ namespace StudyProject
                     if (tabletName == actor.name)
                     {
                         onActor = true;
-                        
-                        ColorGreen();
+
+                        RightChoiceColor = true;
                         scoreTable.Score++;
                         AllReset();
                         
@@ -207,14 +211,5 @@ namespace StudyProject
             _selected = false;
             _image.material = null;
         }
-
-        public void ColorGreen(bool isGreen = true)
-        {
-            if (isGreen)
-                _image.color = _green;
-            else
-                _image.color = _white;
-        }
-
     }
 }
