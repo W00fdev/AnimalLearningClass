@@ -8,7 +8,7 @@ namespace StudyProject
     public class DialogueHandler : MonoBehaviour
     {
         [Header("Список диалогов")]
-        public List<Dialogue> dialogues;
+        //public List<Dialogue> dialogues;
         public List<Message> messages;
 
         [Header("Ссылки на UI текст")]

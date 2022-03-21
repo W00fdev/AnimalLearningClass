@@ -13,8 +13,7 @@ namespace StudyProject
         public List<Actor> actors;
         public List<UnityEvent> actions;
 
-        public List<float> inactiveTimeOnActions;
-        public List<int> dialoguesBeforeAction;       
+        public List<float> inactiveTimeOnActions; 
         
         public int currentAction = 0;
 
@@ -52,14 +51,15 @@ namespace StudyProject
             if (inactiveTimeOnActions[currentAction - 1] == -1)
                 return; // infinite waiting ... wait for actions :3
 
-            if (dialoguesBeforeAction[currentAction] > 0)
-            {
-                _dialogueHandler.Play();
-            }
-            else
-            {
-                NextAction();
-            }
+            _dialogueHandler.Play();
+
+            // if (dialoguesBeforeAction[currentAction] > 0)
+            //{
+            // }
+            //else
+            //{
+            //    NextAction();
+            //}
         }
 
         IEnumerator InactiveChange(float delayTime)

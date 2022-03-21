@@ -959,57 +959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa21da5679d746747b055febb55d7677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogues:
-  - {fileID: 11400000, guid: e6bcb71b875a37d4b9768dcfc823d423, type: 2}
-  - {fileID: 11400000, guid: f109c2ab4c474d243bd3d48e2b348e98, type: 2}
-  - {fileID: 11400000, guid: 387315b2cac1782479db5fbe2bb189c7, type: 2}
-  - {fileID: 11400000, guid: 28efbdef8c28eb246babafc8e901b5d5, type: 2}
-  - {fileID: 11400000, guid: 54053aeb21f93664089f76ad9ed69ae0, type: 2}
-  - {fileID: 11400000, guid: 634ef2dab8c0b6c44aaf188e796e28c1, type: 2}
-  - {fileID: 11400000, guid: ca0b16970ae29b846a4101097e13dbad, type: 2}
-  - {fileID: 11400000, guid: cc88af9cc6169e143ac28d8b21eeb05c, type: 2}
-  - {fileID: 11400000, guid: b2558c5623db4b54583f5e131199643b, type: 2}
-  - {fileID: 11400000, guid: d26038eaa89211e4c98d6526f2bd1131, type: 2}
-  - {fileID: 11400000, guid: c19d2655275dc9b4bb302f1e12deb759, type: 2}
-  - {fileID: 11400000, guid: 45d0c6993c9c2664ab18cbc103d446bb, type: 2}
-  - {fileID: 11400000, guid: 9e4ccebf47819644fbda18d4b7bbb485, type: 2}
-  - {fileID: 11400000, guid: 966d3fd60da091a4eb7d7811fd99e1f0, type: 2}
-  - {fileID: 11400000, guid: a036d566520f5934384b25f28bbee09d, type: 2}
-  - {fileID: 11400000, guid: 457eef0d904d0b74bb62d15c0743b9d2, type: 2}
-  - {fileID: 11400000, guid: dd6ac67618ffe084697c82c782dc0c3a, type: 2}
-  - {fileID: 11400000, guid: 7493762695b862541bc754d9d11543bf, type: 2}
-  - {fileID: 11400000, guid: 7bac65737ff90324d967d2f8b3dd4e5a, type: 2}
-  - {fileID: 11400000, guid: 78376e1e17231e145a4d544ed511946d, type: 2}
-  - {fileID: 11400000, guid: 8933f5644c875694cb789e7d8ede335e, type: 2}
-  - {fileID: 11400000, guid: 32bd5d7f653ea6b4da8ed85fed95d501, type: 2}
-  - {fileID: 11400000, guid: 6e15d55841556c446ba8fe697311a6be, type: 2}
-  - {fileID: 11400000, guid: 2bf20a3dcb4c3a94fbfd5e5a408f8773, type: 2}
-  - {fileID: 11400000, guid: fe4b88efd49f16743882e1757a8a5145, type: 2}
-  - {fileID: 11400000, guid: 22687c2c841eaeb4cb1aa8979244ea14, type: 2}
-  - {fileID: 11400000, guid: a52ef25bac13d1047bd3856cc2ddcf6f, type: 2}
-  - {fileID: 11400000, guid: 443e293d4ee11cd438ea3dd6248e2d08, type: 2}
-  - {fileID: 11400000, guid: cbf2511b53a84da4390233a87473f4c9, type: 2}
-  - {fileID: 11400000, guid: 8464d7c057e54e949b5608ec2c561c55, type: 2}
-  - {fileID: 11400000, guid: fefbb2aed17113c41b5617d99597a56d, type: 2}
-  - {fileID: 11400000, guid: 5242ed28a3074a246a44cec45a0d19ca, type: 2}
-  - {fileID: 11400000, guid: f4770cb2f0fd3364f8f4fb2befc33b70, type: 2}
-  - {fileID: 11400000, guid: 888446aeea7b3154d8280e3db38e7dd4, type: 2}
-  - {fileID: 11400000, guid: d25cbd2b2d73d2049a705270a50274a9, type: 2}
-  - {fileID: 11400000, guid: 9736333edbf083a42ab5ea1d85955da7, type: 2}
-  - {fileID: 11400000, guid: b6c8289f46e74b34090246f6cf9ba9e1, type: 2}
-  - {fileID: 11400000, guid: 13b1f27cf7021c240bc41140cfd3d72d, type: 2}
-  - {fileID: 11400000, guid: 459bf321ea8548f47b0c715d5dd8a8fa, type: 2}
-  - {fileID: 11400000, guid: b6e8c380f32b39c4780a7ea1fd168323, type: 2}
-  - {fileID: 11400000, guid: a41d8a26f845d5b43b27fb637b0634bf, type: 2}
-  - {fileID: 11400000, guid: bc1dda0f1b572da4eadcf6a34d938547, type: 2}
-  - {fileID: 11400000, guid: 1df85fb5ebbace642a87a5309c8e46b3, type: 2}
-  - {fileID: 11400000, guid: 870512ebb876bda499f7a5f5cd0715d9, type: 2}
-  - {fileID: 11400000, guid: abbe491295151ef4d9ab1ad367a8c0b4, type: 2}
-  - {fileID: 11400000, guid: f0198727beebd4244ae9d0d012349e10, type: 2}
-  - {fileID: 11400000, guid: cd52555f68ede794b9dac9f1ff4619dd, type: 2}
-  - {fileID: 11400000, guid: 683a74a4391e8fe409193da4306ba10a, type: 2}
-  - {fileID: 11400000, guid: cf4e040cba003ae439442cd729773363, type: 2}
-  - {fileID: 11400000, guid: 831daa727e39b084d9d182e772d32afe, type: 2}
   messages:
   - {fileID: 11400000, guid: 369739eac489ce744b80fc425764bc40, type: 2}
   - {fileID: 11400000, guid: a55f1ef51d4a3eb4aa84ced3c727fedf, type: 2}
@@ -2064,7 +2013,6 @@ MonoBehaviour:
   - -1
   - -1
   - -1
-  dialoguesBeforeAction: 0600000001000000010000000800000004000000030000000200000001000000050000000200000003000000030000000400000002000000020000000500000003000000010000000100000001000000020000000200000001000000
   currentAction: 0
 --- !u!1 &325308597
 GameObject:

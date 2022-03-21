@@ -22,6 +22,8 @@ namespace StudyProject
         [SerializeField]
         private int _time = 20;
 
+        private void Start() => timerText.text = _time.ToString();
+
         public void EnableTimer()
         {
             StartCoroutine(TimerCoroutine());
@@ -48,7 +50,7 @@ namespace StudyProject
             tabletOwner.SetActive(false);
             actorOwner.SetActive(false);
             vovaOwner.SetActive(false);
-            //dialogueOwner.SetActive(false);
+            dialogueOwner.SetActive(false);
             gameObject.SetActive(false);
         }
     }
