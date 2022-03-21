@@ -1020,6 +1020,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a1d84a488b0527d4281861e71bcac30d, type: 2}
   - {fileID: 11400000, guid: f4a56e893d6efa1419ac0c0100ce442d, type: 2}
   - {fileID: 11400000, guid: f724bbd91592d17418b04316aabe1f7a, type: 2}
+  - {fileID: 11400000, guid: ea86499bceb2b0b46a825af043dbc4d5, type: 2}
+  - {fileID: 11400000, guid: 08e3c8cc1a2f826409a8c57cfdcbf5a4, type: 2}
+  - {fileID: 11400000, guid: 805f5c48a94b27447b56719c83c50a2d, type: 2}
+  - {fileID: 11400000, guid: b028819efd896bf4997aa2947ca6fe75, type: 2}
+  - {fileID: 11400000, guid: df14dcc8212780b43883b60d5e9bf7e5, type: 2}
   textSpeaker: {fileID: 815525567}
   textMessage: {fileID: 1201567267}
   skippedSpeakers:
@@ -1580,6 +1585,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: StudyProject.DialogueHandler, Assembly-CSharp
         m_MethodName: SetInactive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 639653263}
+        m_TargetAssemblyTypeName: StudyProject.Actor, Assembly-CSharp
+        m_MethodName: StartClopping
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
