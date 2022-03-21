@@ -1010,6 +1010,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 683a74a4391e8fe409193da4306ba10a, type: 2}
   - {fileID: 11400000, guid: cf4e040cba003ae439442cd729773363, type: 2}
   - {fileID: 11400000, guid: 831daa727e39b084d9d182e772d32afe, type: 2}
+  messages:
+  - {fileID: 11400000, guid: 369739eac489ce744b80fc425764bc40, type: 2}
+  - {fileID: 11400000, guid: a55f1ef51d4a3eb4aa84ced3c727fedf, type: 2}
+  - {fileID: 11400000, guid: e8b995cd7d4727b4193eb88c707bffb7, type: 2}
+  - {fileID: 11400000, guid: e93a8e57afe17a245af7b8bbf030a60d, type: 2}
+  - {fileID: 11400000, guid: 3f4bec30265912d4a93618fcf99fa5f2, type: 2}
+  - {fileID: 11400000, guid: db8ddd7c9f7531c4988eb23f2cbe42e2, type: 2}
   textSpeaker: {fileID: 815525567}
   textMessage: {fileID: 1201567267}
   skippedSpeakers:
@@ -1017,6 +1024,7 @@ MonoBehaviour:
   - 
   _tickDelay: 0.05
   _currentDialogue: 0
+  _currentMessage: 0
   _nextCheckpointDialogue: 10
   _isInactive: 0
 --- !u!4 &256600151
@@ -3805,8 +3813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee7cb1b887f92048a234d71d4a9c9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speaking1: {fileID: 0}
-  speaking2: {fileID: 0}
+  speaking1: {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
+  speaking2: {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
   speakingTimeTick: 0.3
   speaking: 0
   clopping: 0
@@ -3815,7 +3823,6 @@ MonoBehaviour:
   clop2: {fileID: 0}
   clop3: {fileID: 0}
   spriteSheet:
-  - {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
   - {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
   - {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
   - {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}

@@ -9,6 +9,7 @@ namespace StudyProject
     {
         [Header("Список диалогов")]
         public List<Dialogue> dialogues;
+        public List<Message> messages;
 
         [Header("Ссылки на UI текст")]
         public Text textSpeaker;
@@ -21,6 +22,7 @@ namespace StudyProject
         [SerializeField] private float _tickDelay = 0.1f;
 
         [SerializeField] private int _currentDialogue = 0;
+        [SerializeField] private int _currentMessage = 0;
         [SerializeField] private int _nextCheckpointDialogue = 10;
 
         [SerializeField] private bool _isInactive = false;
@@ -29,6 +31,7 @@ namespace StudyProject
         private Coroutine _tickCoroutine;
 
         private Actor _currentSpeaker;
+        private Message _message;
 
         private bool isTicking = false;
        
@@ -37,9 +40,10 @@ namespace StudyProject
         public void SetInactive(bool _active) => _isInactive = _active;
         public void Reset() => _currentDialogue = 0;
 
-        public void Play(int count) 
+        public void Play() 
         {
-            _nextCheckpointDialogue = _currentDialogue + count;
+            _message = messages[_currentMessage];
+            _nextCheckpointDialogue = _message.Speeches.Count;
             PlayNext();
         }
 
@@ -49,7 +53,7 @@ namespace StudyProject
             if (_isInactive)
                 return;
 
-            if (_nextCheckpointDialogue <= _currentDialogue) 
+            if (_currentDialogue >= _nextCheckpointDialogue) 
             {
                 _gameManager.DialogueHasDone();
 
@@ -59,6 +63,9 @@ namespace StudyProject
                     _currentSpeaker = null;
                 }
 
+                _currentDialogue = 0;
+                _currentMessage++;
+                _message = messages[_currentMessage];
                 return;
             }
 
@@ -67,7 +74,8 @@ namespace StudyProject
             {
                 StopCoroutine(_tickCoroutine);
                 isTicking = false;
-                textMessage.text = dialogues[_currentDialogue].dialogue;
+                // textMessage.text = dialogues[_currentDialogue].dialogue;
+                textMessage.text = _message.Speeches[_currentDialogue];
 
                 if (_currentSpeaker != null)
                 {
@@ -78,9 +86,10 @@ namespace StudyProject
                 _currentDialogue++;
                 return;
             }
-                
+
             // If an active person speaks
-            if (!skippedSpeakers.Contains(dialogues[_currentDialogue].speaker))
+            string speakerName = _message.Speakers[_currentDialogue];
+            if (!skippedSpeakers.Contains(speakerName))
             {
                 if (_currentSpeaker != null)
                 {
@@ -88,17 +97,17 @@ namespace StudyProject
                     _currentSpeaker = null;
                 }
 
-                _currentSpeaker = _gameManager.actors.Find( x => x.name == dialogues[_currentDialogue].speaker );
+                _currentSpeaker = _gameManager.actors.Find( x => x.name == speakerName);
                 if (_currentSpeaker != null)
                 {
-                    _currentSpeaker.ChangeMood(dialogues[_currentDialogue].passiveState);
+                    _currentSpeaker.ChangeMood(_message.Moods[_currentDialogue]);
 
                     if (_currentSpeaker != null)
                         _currentSpeaker.StartSpeaking();
                 }
             }
 
-            textSpeaker.text = dialogues[_currentDialogue].speaker;
+            textSpeaker.text = _message.Speakers[_currentDialogue];
             textMessage.text = "";
             _tickCoroutine = StartCoroutine(TickText());
         }
@@ -107,7 +116,7 @@ namespace StudyProject
         {
             isTicking = true;
             string temp = "";
-            foreach(char c in dialogues[_currentDialogue].dialogue) 
+            foreach(char c in _message.Speeches[_currentDialogue]) 
             {
                 temp += c;
                 textMessage.text = temp;

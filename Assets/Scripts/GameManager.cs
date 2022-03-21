@@ -25,7 +25,7 @@ namespace StudyProject
             SetActorsMood();
 
             _dialogueHandler = GetComponent<DialogueHandler>();
-            _dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
+            _dialogueHandler.Play();
         }
 
         public void SetActorsMood(int mood = 0)
@@ -54,7 +54,7 @@ namespace StudyProject
 
             if (dialoguesBeforeAction[currentAction] > 0)
             {
-                _dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
+                _dialogueHandler.Play();
             }
             else
             {

@@ -15,5 +15,4 @@ MonoBehaviour:
   speaker: Vova
   dialogue: "Oh, my name is Vova! I\u2019m from England! My friends will arrive a
     bit later. What are you doing here? "
-  activeState: 1
-  passiveState: 8
+  passiveState: 0
