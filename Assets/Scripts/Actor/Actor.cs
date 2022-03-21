@@ -141,7 +141,7 @@ namespace StudyProject
 
             while (clopping)
             {
-                yield return new WaitForSeconds(speakingTimeTick);
+                yield return new WaitForSeconds(speakingTimeTick / 2.5f);
                 if (_cloppingIndex == 0)
                     _image.sprite = clop1;
                 else if (_cloppingIndex == 1)
