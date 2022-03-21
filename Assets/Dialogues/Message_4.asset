@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76d2dc7fcb68b041a12ec0193ef1e6d, type: 3}
+  m_Name: Message_4
+  m_EditorClassIdentifier: 
+  Speakers:
+  - "\u041F\u043E\u043F\u0443\u0433\u0430\u0439"
+  - Vova
+  - "\u0420\u0430\u0441\u0441\u043A\u0430\u0437"
+  - "\u0417\u0435\u0431\u0440\u0430"
+  - Vova
+  - "\u0417\u0435\u0431\u0440\u0430"
+  - "\u041F\u043E\u043F\u0443\u0433\u0430\u0439"
+  - Vova
+  Speeches:
+  - "\u0423 \u043D\u0430\u0441 \u0441\u0435\u0433\u043E\u0434\u043D\u044F \u0443\u0440\u043E\u043A!
+    \u041C\u044B \u0434\u043E\u043B\u0436\u043D\u044B \u043D\u0430\u0443\u0447\u0438\u0442\u044C
+    \u0442\u0435\u0431\u044F \u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\u043E
+    \u043D\u0430\u0441 \u043D\u0430\u0437\u044B\u0432\u0430\u0442\u044C. \u0422\u044B
+    \u0436\u0435 \u0437\u043D\u0430\u0435\u0448\u044C, \u043A\u0442\u043E \u0442\u0430\u043A\u0438\u0435
+    \u043F\u043E\u043F\u0443\u0433\u0430\u0438?"
+  - "I\u2019m sorry, I don\u2019t speak Russian"
+  - "\u0416\u0438\u0432\u043E\u0442\u043D\u044B\u0435 \u0443\u0434\u0438\u0432\u0438\u043B\u0438\u0441\u044C,
+    \u043E\u043D\u0438 \u0441\u043E\u0432\u0441\u0435\u043C \u043D\u0435 \u043E\u0436\u0438\u0434\u0430\u043B\u0438
+    \u0443\u0441\u043B\u044B\u0448\u0430\u0442\u044C \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u043D\u0443\u044E
+    \u0440\u0435\u0447\u044C"
+  - "\u0411\u0435\u0437 \u043F\u0430\u043D\u0438\u043A\u0438! \u042F \u0437\u043D\u0430\u044E
+    \u0438\u043D\u043E\u0441\u0442\u0440\u0430\u043D\u043D\u044B\u0439! Hi! What\u2019s
+    your name!"
+  - "Oh, my name is Vova! I\u2019m from England! My friends will arrive a bit later.
+    What are you doing here? "
+  - "\u0412\u044B \u0437\u043D\u0430\u0435\u0442\u0435... \u0415\u0433\u043E \u0412\u043E\u0432\u0430
+    \u0437\u043E\u0432\u0443\u0442. \u041E\u043D \u0438\u0437 \u0410\u043D\u0433\u043B\u0438\u0438
+    \u043A \u043D\u0430\u043C. \u0410 \u0434\u0430\u043B\u044C\u0448\u0435..."
+  - "\u0414\u0430\u0432\u0430\u0439\u0442\u0435 \u044F. Vova, animals, you know?"
+  - 'Actually not. We have a Russian lesson today. The teacher has given me some
+    tablets with Russian animals and this dog. '
+  Moods: 0700000003000000030000000000000003000000070000000000000007000000

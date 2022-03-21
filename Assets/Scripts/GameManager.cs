@@ -22,9 +22,10 @@ namespace StudyProject
 
         private void Start()
         {
+            SetActorsMood();
+
             _dialogueHandler = GetComponent<DialogueHandler>();
             _dialogueHandler.Play(dialoguesBeforeAction[currentAction]);
-            SetActorsMood();
         }
 
         public void SetActorsMood(int mood = 0)

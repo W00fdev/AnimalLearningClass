@@ -639,7 +639,7 @@ MonoBehaviour:
   speaking2: {fileID: 21300000, guid: 1f186486b9af1ba45b317a814984d2a1, type: 3}
   speakingTimeTick: 0.2
   speaking: 0
-  cloppable: 0
+  clopping: 0
   clopTime: 1
   clop1: {fileID: 0}
   clop2: {fileID: 0}
@@ -656,6 +656,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 869b246f40d526649833177a8583e950, type: 3}
   name: "\u041F\u043E\u043F\u0443\u0433\u0430\u0439"
   _mood: 0
+  _originSprite: {fileID: 0}
 --- !u!114 &185516639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,8 +1016,8 @@ MonoBehaviour:
   textMessage: {fileID: 1201567267}
   skippedSpeakers:
   - "\u0420\u0430\u0441\u0441\u043A\u0430\u0437"
-  - "\u0425\u043E\u0440\u043E\u043C"
-  _tickDelay: 0.1
+  - 
+  _tickDelay: 0.05
   _currentDialogue: 0
   _nextCheckpointDialogue: 10
   _isInactive: 0
@@ -2145,7 +2146,7 @@ MonoBehaviour:
   speaking2: {fileID: 21300000, guid: d930ea931449919409a856f57f68341b, type: 3}
   speakingTimeTick: 0.2
   speaking: 0
-  cloppable: 0
+  clopping: 0
   clopTime: 1
   clop1: {fileID: 0}
   clop2: {fileID: 0}
@@ -2162,6 +2163,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7b05912e09ef3ca4491fb385245fc998, type: 3}
   name: "\u041B\u0435\u0432"
   _mood: 0
+  _originSprite: {fileID: 0}
 --- !u!114 &419023858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2745,7 +2747,7 @@ MonoBehaviour:
   speaking2: {fileID: 21300000, guid: 7f26b63d7d15d8b479ae8760002aec18, type: 3}
   speakingTimeTick: 0.3
   speaking: 0
-  cloppable: 1
+  clopping: 0
   clopTime: 1
   clop1: {fileID: 21300000, guid: c043d98c8eb19294db9983faa7b94a2c, type: 3}
   clop2: {fileID: 21300000, guid: fe887031319188248b118d0ddafc4d0f, type: 3}
@@ -2762,6 +2764,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e5b96e9943284a84cb1cb499d5e3be97, type: 3}
   name: Vova
   _mood: 0
+  _originSprite: {fileID: 0}
 --- !u!114 &639653264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,7 +2991,7 @@ MonoBehaviour:
   speaking2: {fileID: 21300000, guid: a1458590bf7e12f40af4a4f43832ddbc, type: 3}
   speakingTimeTick: 0.2
   speaking: 0
-  cloppable: 0
+  clopping: 0
   clopTime: 1
   clop1: {fileID: 0}
   clop2: {fileID: 0}
@@ -3005,6 +3008,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b3fb43e346391bf48965930d5e2fd500, type: 3}
   name: "\u0421\u043B\u043E\u043D"
   _mood: 0
+  _originSprite: {fileID: 0}
 --- !u!50 &693714196
 Rigidbody2D:
   serializedVersion: 4
@@ -3363,7 +3367,7 @@ MonoBehaviour:
   speaking2: {fileID: 21300000, guid: 574cea2512b102d47b790c910890ba80, type: 3}
   speakingTimeTick: 0.3
   speaking: 0
-  cloppable: 0
+  clopping: 0
   clopTime: 1
   clop1: {fileID: 0}
   clop2: {fileID: 0}
@@ -3380,6 +3384,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f79412b3339d5de478a12cb698c0fc3d, type: 3}
   name: "\u041F\u0430\u043D\u0434\u0430"
   _mood: 0
+  _originSprite: {fileID: 0}
 --- !u!114 &804378588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3814,7 +3819,7 @@ MonoBehaviour:
   speaking2: {fileID: 0}
   speakingTimeTick: 0.3
   speaking: 0
-  cloppable: 0
+  clopping: 0
   clopTime: 1
   clop1: {fileID: 0}
   clop2: {fileID: 0}
@@ -3831,6 +3836,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d576a006ec57cd34ba50b203fb987679, type: 3}
   name: Girl
   _mood: 0
+  _originSprite: {fileID: 0}
 --- !u!114 &949632624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4613,7 +4619,7 @@ MonoBehaviour:
   speaking2: {fileID: 21300000, guid: 89716d93b84c0a94aaa8b75b0e975213, type: 3}
   speakingTimeTick: 0.2
   speaking: 0
-  cloppable: 0
+  clopping: 0
   clopTime: 1
   clop1: {fileID: 0}
   clop2: {fileID: 0}
@@ -4630,6 +4636,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 86945ac82a812b0438e541513bcd9157, type: 3}
   name: "\u0417\u0435\u0431\u0440\u0430"
   _mood: 0
+  _originSprite: {fileID: 0}
 --- !u!114 &1555360366
 MonoBehaviour:
   m_ObjectHideFlags: 0

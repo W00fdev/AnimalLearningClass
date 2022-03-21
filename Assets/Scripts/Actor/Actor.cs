@@ -17,7 +17,7 @@ namespace StudyProject
         public bool speaking = false;
 
         [Header("Хлопанье")]
-        public bool cloppable = false;
+        public bool clopping = false;
         public float clopTime = 1f;
 
         public Sprite clop1 = null;
@@ -39,7 +39,8 @@ namespace StudyProject
 
         // Speaking attributes
         private Coroutine _speakingCoroutine;
-        private Sprite _originSprite;
+        //[SerializeField]
+        //private Sprite _originSprite;
         private bool _speakingFlag = false;
         
         // Clopping attributes
@@ -65,6 +66,8 @@ namespace StudyProject
         {
             _mood = newMood;
             _image.sprite = spriteSheet[(int)_mood];
+            //_originSprite = _image.sprite;
+            Debug.Log(name + " : " + newMood + " : " + spriteSheet[(int)_mood] + " (" + (int)_mood + ")");
         }
 
         // Inspector-version function.
@@ -72,76 +75,97 @@ namespace StudyProject
         {
             _mood = (StatePassive)newMood;
             _image.sprite = spriteSheet[newMood];
+            //_originSprite = _image.sprite;
+            Debug.Log(name + " : " + newMood + " : " + spriteSheet[newMood] + "[" + newMood + "]");
         }
 
         public void StartSpeaking()
         {
             if (_speakingCoroutine != null)
             {
+                speaking = false;
                 StopCoroutine(_speakingCoroutine);
                 _speakingCoroutine = null;
             }
             
-            _originSprite = _image.sprite;
-            _speakingCoroutine = StartCoroutine(SpeakCoroutine());
+            //_originSprite = _image.sprite;
             speaking = true;
+            _speakingCoroutine = StartCoroutine(SpeakCoroutine());
         }
 
         public void StopSpeaking()
         {
             if (_speakingCoroutine != null)
             {
-                StopCoroutine(_speakingCoroutine);
-                _image.sprite = _originSprite;
                 speaking = false;
+                StopCoroutine(_speakingCoroutine);
+                //_image.sprite = _originSprite;
                 _speakingCoroutine = null;
+                ChangeMood(_mood);
             }
         }
 
         IEnumerator SpeakCoroutine()
         {
-            yield return new WaitForSeconds(speakingTimeTick);
-            if (_speakingFlag == false)
-                _image.sprite = speaking1;
-            else
-                _image.sprite = speaking2;
+            speaking = true;
 
-            _speakingFlag = !_speakingFlag;
+            while (speaking)
+            {
+                yield return new WaitForSeconds(speakingTimeTick);
+                if (_speakingFlag == false)
+                    _image.sprite = speaking1;
+                else
+                    _image.sprite = speaking2;
+
+                _speakingFlag = !_speakingFlag;
+            }
         }
 
 
         public void StartClopping()
         {
-            if (cloppable)
+            if (clopping)
             {
-                _originSprite = _image.sprite;
-                _cloppingCoroutine = StartCoroutine(ClopCoroutine());
-                StartCoroutine(ClopStop());
+                clopping = false;
+                StopCoroutine(_cloppingCoroutine);
+                _cloppingCoroutine = null;
             }
+
+            //_originSprite = _image.sprite;
+            _cloppingCoroutine = StartCoroutine(ClopCoroutine());
+            StartCoroutine(ClopStop());
         }
 
         public void StopClopping()
         {
             if (_cloppingCoroutine != null)
             {
+                clopping = false;
                 StopCoroutine(_cloppingCoroutine);
-                _image.sprite = _originSprite;
+                //_image.sprite = _originSprite;
                 _cloppingCoroutine = null;
+                ChangeMood(_mood);
             }
         }
 
         IEnumerator ClopCoroutine()
         {
-            yield return new WaitForSeconds(speakingTimeTick);
-            if (_cloppingIndex == 0)
-                _image.sprite = clop1;
-            else if (_cloppingIndex == 1)
-                _image.sprite = clop2;
-            else
-                _image.sprite = clop3;
+            clopping = true;
 
-            _cloppingIndex++;
-            _cloppingIndex %= 3;
+            while (clopping)
+            {
+                yield return new WaitForSeconds(speakingTimeTick);
+                if (_cloppingIndex == 0)
+                    _image.sprite = clop1;
+                else if (_cloppingIndex == 1)
+                    _image.sprite = clop2;
+                else
+                    _image.sprite = clop3;
+
+                _cloppingIndex++;
+                _cloppingIndex %= 3;
+            }
+            _cloppingIndex = 0;
         }
 
         IEnumerator ClopStop()
