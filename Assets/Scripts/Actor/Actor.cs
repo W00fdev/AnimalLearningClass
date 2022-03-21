@@ -6,7 +6,7 @@ using UnityEngine;
 namespace StudyProject
 {
     // public enum StateActive { PASSIVE, SPEAKING, FLAPPING, TABLE, FIGURE }
-    public enum StatePassive { DEFAULT, HAPPY, SAD, INCOMPREHESION, PROUD, ANGRY, SURPRISED, SMILING }
+    public enum StatePassive { DEFAULT = 0, HAPPY = 1, SAD, INCOMPREHESION, PROUD, ANGRY, SURPRISED, SMILING }
 
     public class Actor : MonoBehaviour
     {
@@ -33,14 +33,11 @@ namespace StudyProject
 
         [SerializeField] 
         private StatePassive _mood = StatePassive.DEFAULT;
-        //private StateActive _state = StateActive.PASSIVE;
 
         private Image _image;
 
         // Speaking attributes
         private Coroutine _speakingCoroutine;
-        //[SerializeField]
-        //private Sprite _originSprite;
         private bool _speakingFlag = false;
         
         // Clopping attributes
@@ -51,23 +48,17 @@ namespace StudyProject
         // Animal_fun        ==    HAPPY              = 1
         // Animal_sad        ==    SAD                = 2
         // Animal_underst    ==    INCOMPREHESION     = 3
-        // Animal_sp         ==    SPEAKING           = 4
-        // Animal_gor        ==    PROUD              = 5
-        // Animal_ang        ==    ANGRY              = 6
-        // Animal_underst    ==    SURPRISED          = 7
-        // Animal_st         ==    SMILING            = 8
+        // Animal_gor        ==    PROUD              = 4
+        // Animal_ang        ==    ANGRY              = 5
+        // Animal_underst    ==    SURPRISED          = 6
+        // Animal_st         ==    SMILING            = 7
         
         private void Awake() => _image = GetComponent<Image>();
-
-        // public void ChangeState(StateActive newState) => _state = newState;
-        // public void ChangeState(int newState) => _state = (StateActive)newState;
 
         public void ChangeMood(StatePassive newMood)
         {
             _mood = newMood;
             _image.sprite = spriteSheet[(int)_mood];
-            //_originSprite = _image.sprite;
-            Debug.Log(name + " : " + newMood + " : " + spriteSheet[(int)_mood] + " (" + (int)_mood + ")");
         }
 
         // Inspector-version function.
@@ -75,8 +66,6 @@ namespace StudyProject
         {
             _mood = (StatePassive)newMood;
             _image.sprite = spriteSheet[newMood];
-            //_originSprite = _image.sprite;
-            Debug.Log(name + " : " + newMood + " : " + spriteSheet[newMood] + "[" + newMood + "]");
         }
 
         public void StartSpeaking()
@@ -88,7 +77,6 @@ namespace StudyProject
                 _speakingCoroutine = null;
             }
             
-            //_originSprite = _image.sprite;
             speaking = true;
             _speakingCoroutine = StartCoroutine(SpeakCoroutine());
         }
@@ -99,8 +87,8 @@ namespace StudyProject
             {
                 speaking = false;
                 StopCoroutine(_speakingCoroutine);
-                //_image.sprite = _originSprite;
                 _speakingCoroutine = null;
+
                 ChangeMood(_mood);
             }
         }
@@ -131,7 +119,6 @@ namespace StudyProject
                 _cloppingCoroutine = null;
             }
 
-            //_originSprite = _image.sprite;
             _cloppingCoroutine = StartCoroutine(ClopCoroutine());
             StartCoroutine(ClopStop());
         }
@@ -142,8 +129,8 @@ namespace StudyProject
             {
                 clopping = false;
                 StopCoroutine(_cloppingCoroutine);
-                //_image.sprite = _originSprite;
                 _cloppingCoroutine = null;
+
                 ChangeMood(_mood);
             }
         }
