@@ -55,8 +55,6 @@ namespace StudyProject
 
             if (_currentDialogue >= _nextCheckpointDialogue) 
             {
-                _gameManager.DialogueHasDone();
-
                 if (_currentSpeaker != null)
                 {
                     _currentSpeaker.StopSpeaking();
@@ -65,7 +63,10 @@ namespace StudyProject
 
                 _currentDialogue = 0;
                 _currentMessage++;
-                _message = messages[_currentMessage];
+                //_message = messages[_currentMessage];
+
+                _gameManager.DialogueHasDone();
+
                 return;
             }
 
