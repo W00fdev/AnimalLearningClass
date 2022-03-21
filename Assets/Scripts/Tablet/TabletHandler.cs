@@ -11,6 +11,8 @@ namespace StudyProject
     {
         [Header("Счетчик очков")]
         public ScoreTable scoreTable;
+        [SerializeField]
+        private bool _firstTry = true;
 
 
         [Header("Настройка")]
@@ -91,7 +93,7 @@ namespace StudyProject
             Clickable = false;
             WaitForNextAction = false;
         }
-
+        
         private void Start()
         {
             _image = GetComponent<Image>();
@@ -193,12 +195,16 @@ namespace StudyProject
                         onActor = true;
 
                         RightChoiceColor = true;
-                        scoreTable.Score++;
+                        if (_firstTry)
+                            scoreTable.Score += 5;
+                        scoreTable.Score += 5;
+
                         AllReset();
                         
                         var anchorTabletTransform = actor.GetComponent<Transform>().GetChild(0);
                         _rtransform.position = anchorTabletTransform.position;
                     }
+                    _firstTry = false;
                 }
             }
         }
